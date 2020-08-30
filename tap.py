@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import sys
 import os
 from pathlib import Path
@@ -38,6 +39,7 @@ class Tap:
             for key, value in filetypes.items():
                 if key == arg[1]:
                     return value
+            print(f"{arg[1]} not in list")
 
     def get_name(self):
         name = self.parse_args()
@@ -52,7 +54,7 @@ class Tap:
         path_from = os.path.join(config_path, name)
         path_to = os.path.join(dst, name)
         if os.path.isfile(path_to):
-            replace = input("Replace file {path_to}: [Y/n] ")
+            replace = input(f"Replace file {name}: [Y/n] ")
             if replace.upper() != "Y":
                 exit()
         print(f"Copied {path_from} to {path_to}")
