@@ -33,9 +33,6 @@ class Setup:
 
 
 class Tap:
-    def __init__(self):
-        self.copy_file()
-
     def parse_args(self):
         if len(arg := sys.argv) == 2:
             for key, value in filetypes.items():
@@ -65,4 +62,4 @@ class Tap:
 if __name__ == "__main__":
     setup = Setup()
     tap = Tap()
-    tap.get_name()
+    tap.copy_file()
