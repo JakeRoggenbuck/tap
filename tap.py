@@ -39,6 +39,10 @@ class Tap:
             for key, value in filetypes.items():
                 if key == arg[1]:
                     return value
+        if arg[1] == "-h":
+            for key, value in filetypes.items():
+                print(f"Use {key} for {value['name']}")
+        else:
             print(f"{arg[1]} not in list")
 
     def get_name(self):
