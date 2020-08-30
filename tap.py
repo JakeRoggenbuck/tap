@@ -10,7 +10,7 @@ filetypes = {
     "t": {"name": "test"}
 }
 
-config_path = "~/.local/share/tap/"
+config_path = "/home/jake/.local/share/tap/"
 
 
 class Setup:
@@ -29,8 +29,7 @@ class Setup:
         for file_name in src_files:
             full_file_name = os.path.join(full_path, file_name)
             if os.path.isfile(full_file_name):
-                print("Yeet")
-                #shutil.copy(full_file_name, config_path)
+                shutil.copy(full_file_name, config_path)
 
 
 class Tap:
@@ -40,16 +39,8 @@ class Tap:
     def parse_args(self):
         if len(arg := sys.argv) == 2:
             for key, value in filetypes.items():
-                print(arg[1])
                 if key == arg[1]:
                     return value
-
-    def copy_file(self):
-        dst = self.get_dir()
-        name = self.get_name()
-        path_from = os.path.join(config_path, name)
-        path_to = os.path.join(dst, name)
-        shutil.copyfile(path_from, path_to)
 
     def get_name(self):
         name = self.parse_args()
@@ -58,8 +49,17 @@ class Tap:
         filename = name['name']
         return filename
 
-    def get_dir(self):
-        return os.getcwd()
+    def copy_file(self):
+        dst = os.getcwd()
+        name = self.get_name()
+        path_from = os.path.join(config_path, name)
+        path_to = os.path.join(dst, name)
+        if os.path.isfile(path_to):
+            replace = input("Replace file {path_to}: [Y/n] ")
+            if replace.upper() != "Y":
+                exit()
+        print(f"Copied {path_from} to {path_to}")
+        shutil.copyfile(path_from, path_to)
 
 
 if __name__ == "__main__":
