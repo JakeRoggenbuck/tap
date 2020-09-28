@@ -1,4 +1,5 @@
 # Tap
+Quickly tap basic file into existence
 
 ## Help
 `tap -h`
