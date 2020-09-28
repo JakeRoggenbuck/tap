@@ -19,11 +19,13 @@ class Setup:
         self.make_dir()
 
     def make_dir(self):
+        """Make directory if it does not exist"""
         if not os.path.isdir(config_path):
             Path(config_path).mkdir(parents=True)
             self.copy_defualts()
 
     def copy_defualts(self):
+        """Copy defaults to created path"""
         path = os.getcwd()
         full_path = os.path.join(path, "files")
         src_files = os.listdir(full_path)
@@ -35,10 +37,13 @@ class Setup:
 
 class Tap:
     def parse_args(self):
+        """Check if there is a file arg"""
         if len(arg := sys.argv) == 2:
             for key, value in filetypes.items():
                 if key == arg[1]:
+                    # Return value name
                     return value
+        # Show help menu
         if arg[1] == "-h":
             for key, value in filetypes.items():
                 print(f"Use {key} for {value['name']}")
@@ -46,6 +51,7 @@ class Tap:
             print(f"{arg[1]} not in list")
 
     def get_name(self):
+        """Check if name form parse_args is in directory"""
         name = self.parse_args()
         if name is None:
             sys.exit()
@@ -53,6 +59,7 @@ class Tap:
         return filename
 
     def copy_file(self):
+        """Copy single file if selected"""
         dst = os.getcwd()
         name = self.get_name()
         path_from = os.path.join(config_path, name)
