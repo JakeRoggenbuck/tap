@@ -4,5 +4,5 @@
 `tap -h`
 
 ## Use
-`tap l` to Create LICENSE
-`tap r` to Create README.md
+`tap l` to Create LICENSE<br>
+`tap r` to Create README.md<br>

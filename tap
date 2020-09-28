@@ -8,7 +8,6 @@ filetypes = {
     "i": {"name": "__init__.py"},
     "r": {"name": "README.md"},
     "l": {"name": "LICENSE"},
-    "t": {"name": "test"}
 }
 
 config_path = "/home/jake/.local/share/tap/"
