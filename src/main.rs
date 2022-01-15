@@ -4,16 +4,18 @@ use structopt::StructOpt;
 use local::{
     create_local_config_dir, create_local_share, local_config_dir_exists, local_share_exists,
 };
+use tap::create;
 
 pub mod config;
 pub mod display;
 pub mod local;
+pub mod tap;
 
 #[derive(StructOpt)]
 #[structopt(name = "tap", about = "Quickly tap basic file into existence")]
 enum Command {
     #[structopt(name = "it")]
-    It {},
+    It { given: String },
 }
 
 fn main() {
@@ -28,6 +30,6 @@ fn main() {
     }
 
     match Command::from_args() {
-        Command::It {} => println!("Hello world!"),
+        Command::It { given } => create(given.as_str()),
     }
 }
