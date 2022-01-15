@@ -15,7 +15,12 @@ pub mod tap;
 #[structopt(name = "tap", about = "Quickly tap basic file into existence")]
 enum Command {
     #[structopt(name = "it")]
-    It { given: String },
+    It {
+        given: String,
+
+        #[structopt(short, long)]
+        force: bool,
+    },
 }
 
 fn main() {
@@ -30,6 +35,6 @@ fn main() {
     }
 
     match Command::from_args() {
-        Command::It { given } => create(given.as_str()),
+        Command::It { given, force } => create(given.as_str(), force),
     }
 }

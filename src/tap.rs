@@ -9,7 +9,7 @@ pub fn shortcut(given: &str) -> &str {
     }
 }
 
-pub fn create(given: &str) {
+pub fn create(given: &str, force: bool) {
     let name = shortcut(given);
     println!("{}", name);
 }
