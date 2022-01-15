@@ -1,0 +1,21 @@
+# #!/usr/bin/env python3
+# Copyright (c) 2022 <NAME>
+
+import argparse
+
+def parser():
+    parse = argparse.ArgumentParser()
+
+    # parse.add_argument("-i", "--infile", help="Input file name")
+	# parse.add_argument("-o", "--outfile", help="Output file name")
+	# parse.add_argument("-r", "--raw", help="Raw output", action='store_true')
+	# parse.add_argument("-v", "--verbose", help="Verbose output", action='store_true')
+	
+    return parse.parse_args()
+
+def main()
+	args = parser()
+	print(args)
+
+if __name__ == "__main__":
+	main()

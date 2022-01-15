@@ -40,13 +40,25 @@ pub fn local_share_exists() -> bool {
 }
 
 pub fn create_local_share() {
-    create_local(".local/share/tap");
+    create_local(".local/share/tap/");
 }
 
 pub fn config_path() -> String {
     match home::home_dir() {
         Some(path) => {
             format!("{}/{}", path.display(), ".config/tap/tap.toml")
+        }
+        None => {
+            println!("Could not get home directory");
+            String::new()
+        }
+    }
+}
+
+pub fn share_path() -> String {
+    match home::home_dir() {
+        Some(path) => {
+            format!("{}/{}", path.display(), ".local/share/tap/")
         }
         None => {
             println!("Could not get home directory");
