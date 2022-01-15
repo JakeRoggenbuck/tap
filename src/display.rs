@@ -1,5 +1,3 @@
-use termion::{color, style};
-
 #[macro_export]
 macro_rules! bold_color_text {
     ($a:expr, $b:expr) => {{
