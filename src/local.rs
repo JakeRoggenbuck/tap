@@ -35,7 +35,7 @@ pub fn create_local(path_name: &str) {
     }
 }
 
-pub fn check_for_local_share() -> bool {
+pub fn local_share_exists() -> bool {
     check_for_local(".local/share/tap/")
 }
 
@@ -60,9 +60,9 @@ pub fn local_config_file_exists() -> bool {
 }
 
 pub fn local_config_dir_exists() -> bool {
-    check_for_local(".config/acs/")
+    check_for_local(".config/tap/")
 }
 
 pub fn create_local_config_dir() {
-    create_local(".config/acs/")
+    create_local(".config/tap/")
 }
