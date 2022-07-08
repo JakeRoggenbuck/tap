@@ -16,6 +16,17 @@ pub fn shortcut(given: &str) -> FileTypes {
     }
 }
 
+pub fn list() {
+    println!(
+        "mit,
+gpl, gpl3, gplv3,
+py,
+pyarg,
+latexmath,
+latex"
+    );
+}
+
 pub fn create(given: &str, force: bool) {
     let file_type = shortcut(given);
     let outname = file_type.outname();
@@ -31,7 +42,11 @@ pub fn create(given: &str, force: bool) {
     }
 
     match fs::copy(uniquepath.clone(), local_path.clone()) {
-        Ok(_) => println!("Wrote '{}' to '{}'", uniquepath.as_path().display(), local_path),
+        Ok(_) => println!(
+            "Wrote '{}' to '{}'",
+            uniquepath.as_path().display(),
+            local_path
+        ),
         Err(_) => warn_user!(format!(
             "Could not copy '{}' to '{}'",
             uniquepath.as_path().display(),
