@@ -10,6 +10,8 @@ macro_rules! warn_user {
 macro_rules! print_error {
     ($a:expr) => {{
         use colored::Colorize;
+        use std::process::exit;
         println!("{}: {}", "ERROR".bold().red(), $a,);
+        exit(-1);
     }};
 }

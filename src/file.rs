@@ -24,11 +24,11 @@ impl Filename for FileTypes {
 
     fn uniquename(&self) -> &str {
         match self {
-            FileTypes::MitLicense => "MitLicense",
-            FileTypes::Gplv3License => "Gplv3License",
-            FileTypes::Python => "Python",
-            FileTypes::PythonArg => "PythonArg",
-            FileTypes::NoFile => "NoFile",
+            FileTypes::MitLicense => "MIT_LICENSE",
+            FileTypes::Gplv3License => "GPLV3_LICENSE",
+            FileTypes::Python => "PYTHON",
+            FileTypes::PythonArg => "PYTHON_ARG",
+            FileTypes::NoFile => "NO_FILE",
         }
     }
 }

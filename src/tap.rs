@@ -1,6 +1,6 @@
 use super::file::{FileTypes, Filename};
 use super::local::share_path;
-use super::warn_user;
+use super::{warn_user, print_error};
 use std::fs;
 use std::path::Path;
 
@@ -10,7 +10,7 @@ pub fn shortcut(given: &str) -> FileTypes {
         "gpl" | "gpl3" | "gplv3" => FileTypes::Gplv3License,
         "py" => FileTypes::Python,
         "pyarg" => FileTypes::PythonArg,
-        _ => FileTypes::NoFile,
+        _ => print_error!(format!("Could not find file '{}'", given)),
     }
 }
 
