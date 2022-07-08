@@ -1,26 +1,30 @@
-use std::fs;
+use super::file::{FileTypes, Filename};
 use super::local::share_path;
+use super::warn_user;
+use std::fs;
 use std::path::Path;
 
-pub fn shortcut(given: &str) -> &str {
+pub fn shortcut(given: &str) -> FileTypes {
     match given {
-        "mit" => "MIT_LICENSE",
-        "gpl" | "gpl3" | "gplv3" => "GPLV3_LICENSE",
-        "py" => "PYTHON",
-        "pyarg" => "PYTHON_ARG",
-        _ => "NONE",
+        "mit" => FileTypes::MitLicense,
+        "gpl" | "gpl3" | "gplv3" => FileTypes::Gplv3License,
+        "py" => FileTypes::Python,
+        "pyarg" => FileTypes::PythonArg,
+        _ => FileTypes::NoFile,
     }
 }
 
 pub fn create(given: &str, force: bool) {
-    let name = shortcut(given);
+    let file_type = shortcut(given);
+    let outname = file_type.outname();
+    let uniquename = file_type.uniquename();
 
-    let filepath = Path::new(&share_path()).join(name);
+    let uniquepath = Path::new(&share_path()).join(uniquename);
 
-    match fs::copy(filepath, format!("./{}", name)) {
+    match fs::copy(uniquepath, format!("./{}", outname)) {
         Ok(_) => println!("HEY"),
         Err(_) => eprintln!("POKE"),
     };
 
-    println!("{}", name);
+    warn_user!(format!("{} -> {}", uniquename, outname));
 }

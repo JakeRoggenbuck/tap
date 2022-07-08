@@ -6,10 +6,10 @@ use local::{
 };
 use tap::create;
 
-pub mod config;
 pub mod display;
 pub mod local;
 pub mod tap;
+pub mod file;
 
 #[derive(StructOpt)]
 #[structopt(name = "tap", about = "Quickly tap basic file into existence")]
