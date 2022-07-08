@@ -7,7 +7,7 @@ macro_rules! warn_user {
 }
 
 #[macro_export]
-macro_rules! print_error {
+macro_rules! print_error_and_quit {
     ($a:expr) => {{
         use colored::Colorize;
         use std::process::exit;
