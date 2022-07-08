@@ -3,11 +3,14 @@ Quickly tap basic file into existence
 
 ## Help
 ```
-tap --help
+# create an empty python file
+tap it py
+
+# create an empty python file with argparse boilerplate
+tap it pyarg
 ```
 
 ## TODO
-- Make files like `PYTHON_ARG` to names like `main.py`
 - Also have an `--output` option for making `PYTHON_ARG` into anything given as `--output`
 - Add more defaults
 - Add scripts like `cargo init && then copy file`
