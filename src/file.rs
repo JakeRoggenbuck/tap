@@ -4,6 +4,7 @@ pub enum FileTypes {
     Python,
     PythonArg,
     LatexMathHomework,
+    Latex,
     NoFile,
 }
 
@@ -20,6 +21,7 @@ impl Filename for FileTypes {
             FileTypes::Python => "main.py",
             FileTypes::PythonArg => "main.py",
             FileTypes::LatexMathHomework => "main.tex",
+            FileTypes::Latex => "main.tex",
             FileTypes::NoFile => "NoFile",
         }
     }
@@ -31,6 +33,7 @@ impl Filename for FileTypes {
             FileTypes::Python => "PYTHON",
             FileTypes::PythonArg => "PYTHON_ARG",
             FileTypes::LatexMathHomework => "LATEX_MATH_HOMEWORK",
+            FileTypes::Latex => "LATEX",
             FileTypes::NoFile => "NO_FILE",
         }
     }

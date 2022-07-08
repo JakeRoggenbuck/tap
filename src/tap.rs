@@ -11,6 +11,7 @@ pub fn shortcut(given: &str) -> FileTypes {
         "py" => FileTypes::Python,
         "pyarg" => FileTypes::PythonArg,
         "latexmath" => FileTypes::LatexMathHomework,
+        "latex" => FileTypes::Latex,
         _ => print_error_and_quit!(format!("Could not find file '{}'", given)),
     }
 }
