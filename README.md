@@ -2,7 +2,7 @@
 Quickly tap basic file into existence
 
 ## Help
-```
+```sh
 # create an empty python file
 tap it py
 
