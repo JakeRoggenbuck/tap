@@ -13,7 +13,7 @@ def parser():
 	
     return parse.parse_args()
 
-def main()
+def main():
 	args = parser()
 	print(args)
 
