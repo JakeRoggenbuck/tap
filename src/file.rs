@@ -3,6 +3,7 @@ pub enum FileTypes {
     Gplv3License,
     Python,
     PythonArg,
+    LatexMathHomework,
     NoFile,
 }
 
@@ -18,6 +19,7 @@ impl Filename for FileTypes {
             FileTypes::Gplv3License => "LICENSE",
             FileTypes::Python => "main.py",
             FileTypes::PythonArg => "main.py",
+            FileTypes::LatexMathHomework => "main.tex",
             FileTypes::NoFile => "NoFile",
         }
     }
@@ -28,6 +30,7 @@ impl Filename for FileTypes {
             FileTypes::Gplv3License => "GPLV3_LICENSE",
             FileTypes::Python => "PYTHON",
             FileTypes::PythonArg => "PYTHON_ARG",
+            FileTypes::LatexMathHomework => "LATEX_MATH_HOMEWORK",
             FileTypes::NoFile => "NO_FILE",
         }
     }

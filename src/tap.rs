@@ -10,6 +10,7 @@ pub fn shortcut(given: &str) -> FileTypes {
         "gpl" | "gpl3" | "gplv3" => FileTypes::Gplv3License,
         "py" => FileTypes::Python,
         "pyarg" => FileTypes::PythonArg,
+        "latexmath" => FileTypes::LatexMathHomework,
         _ => print_error_and_quit!(format!("Could not find file '{}'", given)),
     }
 }
