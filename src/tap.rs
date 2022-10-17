@@ -12,6 +12,8 @@ pub fn shortcut(given: &str) -> FileTypes {
         "pyarg" => FileTypes::PythonArg,
         "latexmath" => FileTypes::LatexMathHomework,
         "latex" => FileTypes::Latex,
+        "mainc" => FileTypes::MainC,
+        "makewall" => FileTypes::MakeWall,
         _ => {
             list();
             print!("\n");
@@ -27,7 +29,9 @@ gpl, gpl3, gplv3,
 py,
 pyarg,
 latexmath,
-latex"
+latex,
+makewall,
+mainc"
     );
 }
 

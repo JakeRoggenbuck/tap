@@ -6,6 +6,8 @@ pub enum FileTypes {
     LatexMathHomework,
     Latex,
     NoFile,
+    MainC,
+    MakeWall,
 }
 
 pub trait Filename {
@@ -22,6 +24,8 @@ impl Filename for FileTypes {
             FileTypes::PythonArg => "main.py",
             FileTypes::LatexMathHomework => "main.tex",
             FileTypes::Latex => "main.tex",
+            FileTypes::MainC => "main.c",
+            FileTypes::MakeWall => "Makefile",
             FileTypes::NoFile => "NoFile",
         }
     }
@@ -34,6 +38,8 @@ impl Filename for FileTypes {
             FileTypes::PythonArg => "PYTHON_ARG",
             FileTypes::LatexMathHomework => "LATEX_MATH_HOMEWORK",
             FileTypes::Latex => "LATEX",
+            FileTypes::MainC => "MAIN_C",
+            FileTypes::MakeWall => "MAKE_WALL",
             FileTypes::NoFile => "NO_FILE",
         }
     }
