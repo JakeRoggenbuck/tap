@@ -1,11 +1,11 @@
 use log::debug;
 use structopt::StructOpt;
 
-use tap::list;
 use local::{
     create_local_config_dir, create_local_share, local_config_dir_exists, local_share_exists,
 };
 use tap::create;
+use tap::list;
 
 pub mod display;
 pub mod file;
@@ -21,6 +21,9 @@ enum Command {
 
         #[structopt(short, long)]
         force: bool,
+
+        #[structopt(short, long)]
+        output: Option<String>,
     },
 
     #[structopt(name = "list")]
@@ -39,7 +42,11 @@ fn main() {
     }
 
     match Command::from_args() {
-        Command::It { given, force } => create(given.as_str(), force),
+        Command::It {
+            given,
+            force,
+            output,
+        } => create(given, force, output),
         Command::List {} => list(),
     }
 }
