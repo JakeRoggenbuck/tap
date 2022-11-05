@@ -20,6 +20,6 @@ macro_rules! print_error_and_quit {
         use colored::Colorize;
         use std::process::exit;
         println!("{}: {}", "ERROR".bold().red(), $a,);
-        exit(-1);
+        exit(1);
     }};
 }

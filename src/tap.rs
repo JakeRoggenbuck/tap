@@ -1,53 +1,32 @@
-use super::file::{FileTypes, Filename};
+use super::file::get_files;
 use super::local::share_path;
 use super::{print_error_and_quit, warn_user};
+use std::collections::HashMap;
 use std::fs;
 use std::path::Path;
 
-pub fn shortcut(given: &str) -> FileTypes {
-    match given {
-        "mit" => FileTypes::MitLicense,
-        "gpl" | "gpl3" | "gplv3" => FileTypes::Gplv3License,
-        "py" => FileTypes::Python,
-        "pyarg" => FileTypes::PythonArg,
-        "latexmath" => FileTypes::LatexMathHomework,
-        "latex" => FileTypes::Latex,
-        "mainc" => FileTypes::MainC,
-        "makewall" => FileTypes::MakeWall,
-        _ => {
-            list();
-            print!("\n");
-            print_error_and_quit!(format!("Could not find file '{}'", given));
+pub fn shortcut(given: &str) -> (&str, &str) {
+    let files = get_files();
+    match files.get(given) {
+        Some(a) => (given, a),
+        None => {
+            list(files);
+            print_error_and_quit!("Alias not found.");
         }
     }
 }
 
-pub fn list() {
-    println!(
-        "mit,
-gpl, gpl3, gplv3,
-py,
-pyarg,
-latexmath,
-latex,
-makewall,
-mainc"
-    );
+pub fn list(files: HashMap<&str, &str>) {
+    for (k, v) in files {
+        println!("{} -> {}", k, v);
+    }
 }
 
 pub fn create(given: String, force: bool, output: Option<String>) {
-    let file_type = shortcut(given.as_str());
+    let pair = shortcut(given.as_str());
+    let outname = output.unwrap_or(pair.1.to_string());
 
-    let outname;
-    if let Some(o) = output {
-        outname = o;
-    } else {
-        outname = file_type.outname().to_string();
-    }
-
-    let uniquename = file_type.uniquename();
-
-    let uniquepath = Path::new(&share_path()).join(uniquename);
+    let uniquepath = Path::new(&share_path()).join(pair.0.to_string());
     let local_path = format!("./{}", outname);
 
     if !force {

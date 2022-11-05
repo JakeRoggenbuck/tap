@@ -1,5 +1,6 @@
 use log::debug;
 use structopt::StructOpt;
+use file::get_files;
 
 use local::{
     create_local_config_dir, create_local_share, local_config_dir_exists, local_share_exists,
@@ -47,6 +48,6 @@ fn main() {
             force,
             output,
         } => create(given, force, output),
-        Command::List {} => list(),
+        Command::List {} => list(get_files()),
     }
 }
