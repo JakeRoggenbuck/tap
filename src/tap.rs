@@ -35,9 +35,16 @@ mainc"
     );
 }
 
-pub fn create(given: &str, force: bool) {
-    let file_type = shortcut(given);
-    let outname = file_type.outname();
+pub fn create(given: String, force: bool, output: Option<String>) {
+    let file_type = shortcut(given.as_str());
+
+    let outname;
+    if let Some(o) = output {
+        outname = o;
+    } else {
+        outname = file_type.outname().to_string();
+    }
+
     let uniquename = file_type.uniquename();
 
     let uniquepath = Path::new(&share_path()).join(uniquename);
