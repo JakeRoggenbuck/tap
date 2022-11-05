@@ -8,6 +8,7 @@ pub enum FileTypes {
     NoFile,
     MainC,
     MakeWall,
+    HTML,
 }
 
 pub trait Filename {
@@ -27,6 +28,7 @@ impl Filename for FileTypes {
             FileTypes::MainC => "main.c",
             FileTypes::MakeWall => "Makefile",
             FileTypes::NoFile => "NoFile",
+            FileTypes::HTML => "index.html",
         }
     }
 
@@ -41,6 +43,7 @@ impl Filename for FileTypes {
             FileTypes::MainC => "MAIN_C",
             FileTypes::MakeWall => "MAKE_WALL",
             FileTypes::NoFile => "NO_FILE",
+            FileTypes::HTML => "HTML",
         }
     }
 }

@@ -31,7 +31,8 @@ pyarg,
 latexmath,
 latex,
 makewall,
-mainc"
+mainc,
+html"
     );
 }
 
