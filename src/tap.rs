@@ -24,17 +24,9 @@ pub fn list(files: HashMap<&str, &str>) {
 
 pub fn create(given: String, force: bool, output: Option<String>) {
     let pair = shortcut(given.as_str());
+    let outname = output.unwrap_or(pair.1.to_string());
 
-    let outname;
-    if let Some(o) = output {
-        outname = o;
-    } else {
-        outname = pair.1.to_string();
-    }
-
-    let uniquename = pair.0.to_string();
-
-    let uniquepath = Path::new(&share_path()).join(uniquename);
+    let uniquepath = Path::new(&share_path()).join(pair.0.to_string());
     let local_path = format!("./{}", outname);
 
     if !force {
