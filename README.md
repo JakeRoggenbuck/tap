@@ -1,5 +1,5 @@
 # Tap ![Rust](https://img.shields.io/github/workflow/status/jakeroggenbuck/tap/Rust?style=for-the-badge)
-Quickly tap basic file into existence
+Quickly tap basic files into existence
 
 ## Help
 ```sh
