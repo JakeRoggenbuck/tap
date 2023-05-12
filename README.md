@@ -25,3 +25,6 @@ FLAGS:
 ARGS:
     <given>
 ```
+
+## TODO
+Make a `tap install`
