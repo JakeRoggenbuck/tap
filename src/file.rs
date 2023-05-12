@@ -11,5 +11,7 @@ pub fn get_files() -> HashMap<&'static str, &'static str> {
         ("mainc", "main.c"),
         ("makewall", "Makefile"),
         ("html", "index.html"),
+        ("make", "Makefile"),
+        ("maincpp", "main.cpp"),
     ])
 }
