@@ -1,4 +1,4 @@
-# Tap ![Rust](https://img.shields.io/github/actions/workflow/status/jakeroggenbuck/tap/rust.yml?style=for-the-badge)
+# Tap ![Rust](https://img.shields.io/github/actions/workflow/status/jakeroggenbuck/tap/rust.yml?branch=main&style=for-the-badge)
 Quickly tap basic files into existence
 
 ## Help
